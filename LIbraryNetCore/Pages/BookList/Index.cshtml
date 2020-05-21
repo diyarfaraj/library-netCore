@@ -48,8 +48,8 @@
                      @Html.DisplayFor(m => item.Rating)
                  </td>
                  <td>
-                     <a class="btn btn-success btn-sm text-white">Edit</a>
-                     <button class="btn btn-danger btn-sm">Delete</button>
+                     <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                     <button  class="btn btn-danger btn-sm">Delete</button>
 
 
                  </td>
