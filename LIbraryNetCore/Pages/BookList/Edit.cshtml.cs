@@ -24,5 +24,21 @@ namespace LIbraryNetCore
             Book = await _db.Book.FindAsync(id);
             
         }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                var bookFromDb = await _db.Book.FindAsync(Book.Id);
+                bookFromDb.Title = Book.Title;
+                bookFromDb.ISBN = Book.ISBN;
+                bookFromDb.Rating = Book.Rating;
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToPage("Index");
+            }
+            return RedirectToPage();
+        }
     }
 }
